@@ -1,0 +1,1 @@
+enum HistoryStatus { failed, successful }
