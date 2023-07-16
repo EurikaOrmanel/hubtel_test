@@ -36,7 +36,30 @@ class _HomePageState extends State<HomePage> {
     Size screenSize = MediaQuery.of(context).size;
     ThemeData themeData = Theme.of(context);
     return Scaffold(
-      body: _pages[_currentTabIndex],
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      body: Stack(
+        children: [
+          _pages[_currentTabIndex],
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(120, 50),
+                  backgroundColor: Color(0xFF01c7b1),
+                ),
+                onPressed: () {},
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.add_circle,
+                      color: Colors.white,
+                    ),
+                    Text("SEND VIEW")
+                  ],
+                )),
+          )
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: _onBottomNavigationItemTapped,
         items: _bottomNavigationItems,
